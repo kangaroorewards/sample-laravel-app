@@ -23,7 +23,6 @@ class AuthController extends Controller
 
     public function passwordProvider(Request $request)
     {
-        dd($request);
         // Exchange code for access token
         $response = Http::asForm()->withHeaders([
             'X-Application-Key' => $this->applicationKey,
