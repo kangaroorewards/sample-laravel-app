@@ -32,7 +32,8 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'  => 'required|string|max:255',
+            'first_name'  => 'required|string|max:30',
+            'last_name'  => 'required|string|max:30',
             'email' => 'required|email',
             // add additional fields as needed
         ]);
@@ -44,21 +45,22 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = $this->kangaroo->getCustomer($id);
-        return view('customers.show', compact('customer'));
+        return view('customers.show', ['customer' => $customer['data'] ?? []]);
     }
 
     // Show form for editing a customer
     public function edit($id)
     {
         $customer = $this->kangaroo->getCustomer($id);
-        return view('customers.edit', compact('customer'));
+        return view('customers.edit', ['customer' => $customer['data'] ?? []]);
     }
 
     // Update a customer
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'name'  => 'required|string|max:255',
+            'first_name'  => 'required|string|max:30',
+            'last_name'  => 'required|string|max:30',
             'email' => 'required|email',
             // add additional fields as needed
         ]);

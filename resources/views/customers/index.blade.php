@@ -25,7 +25,7 @@
                 @foreach($customers['data'] as $customer)
                     <tr>
                         <td>{{ $customer['id'] ?? '' }}</td>
-                        <td>{{ $customer['name'] ?? '' }}</td>
+                        <td>{{ ($customer['first_name'] ?? '') . ' ' . ($customer['last_name'] ?? '') }}</td>
                         <td>{{ $customer['email'] ?? '' }}</td>
                         <td>
                             <a href="{{ route('customers.show', $customer['id']) }}" class="btn btn-info btn-sm">View</a>

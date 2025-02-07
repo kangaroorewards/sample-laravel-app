@@ -29,9 +29,16 @@ Create DB
 touch database/database.sqlite
 ```
 
+Run migrations
+```
+php artisan migrate
+```
+
 # Starting the web server
 
 ```
 $ cd ~/public
 $ php -S localhost:8000
 ```
+
+Naviage to `/login`
